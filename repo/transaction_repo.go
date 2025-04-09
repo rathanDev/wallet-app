@@ -32,7 +32,7 @@ func (t *TransactionRepo) FindAllTrxs() []entity.TrxEntity {
 
 func (t *TransactionRepo) FindTransactionsByWalletId(walletId string) []entity.TrxEntity {
 	var transactions []entity.TrxEntity
-	t.db.Where("wallet_id = ?", walletId).Find(&transactions)
+	t.db.Where("wallet_id = ? OR counterparty_wallet_id = ?", walletId, walletId).Order("created_at DESC").Find(&transactions)
 	return transactions
 }
 
