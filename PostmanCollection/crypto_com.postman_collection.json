@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "378d6bc1-4d4a-4045-88b6-bb329a4f6fdd",
+		"name": "crypto_com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "977084"
+	},
+	"item": [
+		{
+			"name": "CreateWallet_jana",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"jana\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/wallets",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateWallet_rathan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"jana\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/wallets",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetWallets_ByUserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/wallets/user/jana",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"user",
+						"jana"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBalance_ByWalletId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/wallets/e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTransactions_ByWalletId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/wallets/e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/wallets/e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2/deposit",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/wallets/e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2/withdraw",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"e0ea037f-bd01-4b51-8a9c-a81f8e0b9bf2",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 2000,\r\n    \"counterpartyWalletId\": \"c757c668-02b1-4676-8a9f-7295224b1dfa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/wallets/c757c668-02b1-4676-8a9f-7295224b1dfa/transfer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"c757c668-02b1-4676-8a9f-7295224b1dfa",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE___ALL",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/delete-all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete-all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
