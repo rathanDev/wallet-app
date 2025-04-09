@@ -37,10 +37,9 @@ type IWalletService interface {
 type WalletService struct {
 	log         *logrus.Logger
 	dbTxManager manager.IDbTxManager
-	// userRepo        repo.IUserRepo
-	walletRepo repo.IWalletRepo
-	trxRepo    repo.ITrxRepo
-	mapper     *mapper.AppMapper
+	walletRepo  repo.IWalletRepo
+	trxRepo     repo.ITrxRepo
+	mapper      *mapper.AppMapper
 }
 
 func NewWalletService(log *logrus.Logger, walletRepo repo.IWalletRepo, trxRepo repo.ITrxRepo, mapper *mapper.AppMapper, dbTxManager manager.IDbTxManager) IWalletService {
@@ -219,8 +218,8 @@ func (w *WalletService) TransferMoney(walletId string, req request.TransferReq) 
 	}
 
 	groupId := uuid.New().String()
-	trx := entity.TrxEntity{ID: uuid.New().String(), WalletId: wallet.ID, Amount: req.Amount, TrxType: common.TrxTypeTransferOut, GroupId: groupId, CreatedAt: time.Now()}
-	counterpartyTrx := entity.TrxEntity{ID: uuid.New().String(), WalletId: wallet.ID, Amount: req.Amount, TrxType: common.TrxTypeTransferIn, GroupId: groupId, CreatedAt: time.Now()}
+	trx := entity.TrxEntity{ID: uuid.New().String(), WalletId: walletId, Amount: req.Amount, CounterpartyWalletId: req.CounterpartyWalletId, TrxType: common.TrxTypeTransferOut, GroupId: groupId, CreatedAt: time.Now()}
+	counterpartyTrx := entity.TrxEntity{ID: uuid.New().String(), WalletId: req.CounterpartyWalletId, Amount: req.Amount, CounterpartyWalletId: walletId, TrxType: common.TrxTypeTransferIn, GroupId: groupId, CreatedAt: time.Now()}
 	trxs := []entity.TrxEntity{trx, counterpartyTrx}
 	if err := w.trxRepo.SaveTrxsWithDbTx(trxs, dbTx); err != nil {
 		w.log.Error("Err saving trxs; ", err)
