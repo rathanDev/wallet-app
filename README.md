@@ -1,7 +1,5 @@
 # Wallet App
 
-A simple centralized wallet application built in Go, supporting basic financial operations such as deposit, withdrawal, and transfer of funds between wallets. It also allows users to check balances and view transaction history.
-
 ---
 
 ## Technologies Used
@@ -49,15 +47,15 @@ id | wallet_id |  amount  | counterparty_wallet_id | trx_type | group_id | creat
 
 ---
 
-## 🧑‍💻 How to Run
+## How to Run
 
-### 🔄 Clone the repository
-git clone https://github.com/rathanDev/wallet-app.git
-cd wallet-app
+### Clone the repository
+> git clone https://github.com/rathanDev/wallet-app.git
+> cd wallet-app
 
-### 🔄 Start Postgres database
+### Start Postgres database
 If using docker, use the below command
-docker run --name postgres \
+> docker run --name postgres \
   -e POSTGRES_USER=postgres \
   -e POSTGRES_PASSWORD=postgres \
   -e POSTGRES_DB=app_db \
@@ -67,13 +65,13 @@ docker run --name postgres \
 ### Update config.yaml if necessary
 
 ### Run the app 
-go run main.go
+> go run main.go
 
 ### Run unit tests 
 * Unit tests - API and Server logic 
-    go test .\test\service\wallet_service_test.go -v
+   > go test .\test\service\wallet_service_test.go -v
 * Race condition test 
-    go test .\test\service\wallet_service_race_condition_test.go -v
+   > go test .\test\service\wallet_service_race_condition_test.go -v
 
 ---
 
@@ -91,12 +89,12 @@ go run main.go
 
 
 ## Areas for Improvement
-Add Redis for caching
-Implement API pagination and filters for transactions
-Add Swagger/OpenAPI documentation
-Improve error types and validation messages
-Add retry/rollback logic for failed transactions
-Use Docker Compose for full app + DB orchestration
+- Add Redis for caching
+- Implement API pagination and filters for transactions
+- Add Swagger/OpenAPI documentation
+- Improve error types and validation messages
+- Add retry/rollback logic for failed transactions
+- Use Docker Compose for full app + DB orchestration
 
 ---
 
@@ -104,15 +102,15 @@ Use Docker Compose for full app + DB orchestration
 10 - 12 hours 
 
 
-## How should reviewer view my code
-Code is organized by layers: controller -> service -> repo 
-      main ---------> route -> controller -> service -> repo
-      init db
-      init config
+## How should reviewer view my code?
 
-Service contains core logic and race condition safety
-
-Tests cover both successful and error scenarios
+- Code is organized by layers: controller -> service -> repo 
+    * main
+    * init config
+    * init db 
+    * ---------------------> route -> controller -> service -> repo
+- Service contains core logic and race condition safety
+- Tests cover both successful and error scenarios
 
 
 ## Does it follow engineering best practices?
